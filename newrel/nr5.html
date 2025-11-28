@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melting Melodies - IsaiVerse</title>
+
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=crown" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../trendplaylist/trendplaylist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+<body>
+    <!-- nav bar -->
+    <nav class=" navbar bg-body-tertiary p-2">
+        <div class="container-fluid">
+            <div class="navbar-brand brand">
+                <a href="../index.html"><img style="width:50px; height: 50px;" src="../playlist img/logo.png" alt="image"></a>
+                <h5 class="d-inline-block"><a style="text-decoration: none; color: white;" href="../index.html">IsaiVerse</a>
+                </h5>
+            </div>
+
+
+            <div class="d-flex align-items-center ms-auto w-50">
+                <div class="input-group me-3 w-100">
+                    <span class="input-group-text bg-transparent border-0" id="search-addon">
+
+                    </span>
+                    <!-- <input type="text" class="form-control search-input" placeholder="Search podcasts, artists..."
+                        aria-label="Search"> -->
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="d-flex gap-2 align-items-center">
+                    <button class="btn btn-sm"><a href="../login.html"><span class="material-symbols-outlined">
+                            account_circle</span></a></button>
+                    <button class="btn btn-sm btn-primary "><a id="diamond" href="../premium.html"><i class="fa fa-diamond"></i></a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- playlist -->
+    <!-- Background Blur -->
+    <div class="playlist-bg90s"></div>
+
+    <div class="container playlist-container mt-4">
+
+        <!-- HEADER -->
+        <div class="row align-items-center mb-4">
+            <div class="col-md-4 text-center">
+                <img class="w-75 h-75" src="../playlist img/Thug.jpg">
+            </div>
+
+            <div class="col-md-8 text-white">
+                <p class="small text-uppercase opacity-75">Playlist</p>
+                <h1 class="playlist-title">Thug Life</h1>
+                <p class="opacity-75">A.R.Rahman</p>
+
+                <button class="btn btn-success btn-lg me-2">
+                    <i class="fa fa-play"></i> Play
+                </button>
+                <button class="btn btn-outline-light btn-lg">
+                    <i class="fa fa-random"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- SONG LIST TABLE (Spotify Style) -->
+        <div class="tracks-header d-none d-md-flex">
+            <div class="col-1">#</div>
+            <div class="col-5">Title</div>
+            <div class="col-4">Album</div>
+            <div class="col-2 text-end">Time</div>
+        </div>
+
+        <div id="songList90s"></div>
+
+    </div>
+
+    <!-- ========== BOTTOM SPOTIFY-STYLE PLAYER ========== -->
+    <div class="bottom-player" id="bottomPlayer">
+        <div class="player-left">
+            <img id="playerCover" src="../playlist img/ar trend.jpg" alt="cover" />
+            <div>
+                <div id="playerTitle" style="color:white;font-weight:600;">Not playing</div>
+                <div id="playerArtist" style="color:#bdbdbd;font-size:13px;">—</div>
+            </div>
+        </div>
+
+        <div class="player-center">
+            <div class="player-controls">
+                <button id="prevBtn" title="Previous"><i class="fa fa-backward"></i></button>
+                <button id="playPauseBtn" title="Play/Pause"><i class="fa fa-play"></i></button>
+                <button id="nextBtn" title="Next"><i class="fa fa-forward"></i></button>
+            </div>
+
+            <div class="player-timeline">
+                <div class="time" id="currentTime">0:00</div>
+                <input type="range" id="progress" class="progress" value="0" min="0" max="100" />
+                <div class="time" id="totalTime">0:00</div>
+            </div>
+        </div>
+
+        <div class="player-right">
+            <i class="fa fa-heart" style="opacity:0.9;"></i>
+            <input id="volume" class="volume" type="range" min="0" max="1" step="0.01" value="1" />
+        </div>
+    </div>
+
+
+    <!-- ========== SCRIPTS ========== -->
+    <script>
+        // ---------- your songs list ----------
+        const songData = [{
+            title: "Jinguchaa",
+            artist: "A.R.Rahman",
+            album: "Thug Life",
+            time: "5:30",
+            img: "../playlist img/Thug.jpg",
+            audio: "../playlist_audio/Jinguchaa.mp3"
+        }, {
+            title: "Sugar Baby",
+            artist: "A.R.Rahman",
+            album: "Thug Life",
+            time: "4:12",
+            img: "../playlist img/Thug.jpg",
+            audio: "../playlist_audio/Sugar Baby.mp3"
+        }, {
+            title: "Muththa Mazhai",
+            artist: "A.R.Rahman",
+            album: "Thug Life",
+            time: "5:28",
+            img: "../playlist img/Thug.jpg",
+            audio: "../playlist_audio/Muththa Mazhai.mp3"
+        }, {
+            title: "Vinveli Nayaga",
+            artist: "A.R.Rahman",
+            album: "Thug Life",
+            time: "4:31",
+            img: "../playlist img/Thug.jpg",
+            audio: "../playlist_audio/Vinveli Nayaga.mp3"
+        }, {
+            title: "Anju Vanna Poove",
+            artist: "A.R.Rahman",
+            album: "Thug Life",
+            time: "4:17",
+            img: "../playlist img/Thug.jpg",
+            audio: "../playlist_audio/anju Vanna Poove.mp3"
+        }, {
+            title: "O Maara",
+            artist: "A.R.Rahman",
+            album: "Thug Life",
+            time: "4:17",
+            img: "../playlist img/Thug.jpg",
+            audio: "../playlist_audio/O Maara.mp3"
+        }, {
+            title: "Engeyo",
+            artist: "A.R.Rahman",
+            album: "Thug Life",
+            time: "4:50",
+            img: "../playlist img/Thug.jpg",
+            audio: "../playlist_audio/Vaseegara.mp3"
+        }, ];
+
+        // ---------- generate rows ----------
+        const list = document.getElementById("songList90s");
+
+        function renderList() {
+            list.innerHTML = "";
+            songData.forEach((s, i) => {
+                // if audio missing, keep empty but don't crash
+                const audioAttr = s.audio ? s.audio : "";
+                list.innerHTML += `
+    <div class="track-item row" data-index="${i}" data-audio="${audioAttr}">
+        <div class="col-1 play-icon">${s.audio ? "▶" : "-"}</div>
+
+        <div class="col-5 d-flex align-items-center">
+            <img src="${s.img}" width="50" height="50" style="border-radius:6px; margin-right:12px;">
+            <div>
+                <div class="fw-bold">${s.title}</div>
+                <div class="small text-muted">${s.artist}</div>
+            </div>
+        </div>
+
+        <div class="col-4">${s.album}</div>
+        <div class="col-2 text-end">${s.time}</div>
+    </div>
+`;
+            });
+        }
+
+        renderList();
+
+        // ---------- SEARCH ----------
+        const searchInput = document.getElementById("searchSong");
+        searchInput.addEventListener("keyup", function() {
+            let filter = searchInput.value.toLowerCase();
+            let tracks = document.querySelectorAll(".track-item");
+
+            tracks.forEach(track => {
+                let title = track.querySelector(".fw-bold").innerText.toLowerCase();
+                let artist = track.querySelector(".small").innerText.toLowerCase();
+
+                if (title.includes(filter) || artist.includes(filter)) {
+                    track.style.display = "flex";
+                } else {
+                    track.style.display = "none";
+                }
+            });
+        });
+
+        // ---------- PLAYER LOGIC ----------
+        let audio = new Audio();
+        let currentIndex = -1;
+        let isPlaying = false;
+        let progress = document.getElementById("progress");
+        let playPauseBtn = document.getElementById("playPauseBtn");
+        let prevBtn = document.getElementById("prevBtn");
+        let nextBtn = document.getElementById("nextBtn");
+        let playerTitle = document.getElementById("playerTitle");
+        let playerArtist = document.getElementById("playerArtist");
+        let playerCover = document.getElementById("playerCover");
+        let currentTimeEl = document.getElementById("currentTime");
+        let totalTimeEl = document.getElementById("totalTime");
+        let volumeEl = document.getElementById("volume");
+
+        // Set initial volume
+        audio.volume = parseFloat(volumeEl.value);
+
+        // Click on rows (delegation)
+        list.addEventListener("click", function(e) {
+            const row = e.target.closest(".track-item");
+            if (!row) return;
+            const idx = parseInt(row.dataset.index);
+            if (isNaN(idx)) return;
+            playTrack(idx);
+        });
+
+        function playTrack(index) {
+            const track = songData[index];
+            if (!track || !track.audio) {
+                // no audio available
+                alert("Audio file missing for this track. Add audio path in songData.");
+                return;
+            }
+
+            // if same track toggles play/pause
+            if (currentIndex === index) {
+                if (audio.paused) {
+                    audio.play();
+                    isPlaying = true;
+                    updatePlayIcons();
+                } else {
+                    audio.pause();
+                    isPlaying = false;
+                    updatePlayIcons();
+                }
+                return;
+            }
+
+            // switch to new track
+            currentIndex = index;
+            audio.src = track.audio;
+            audio.currentTime = 0;
+            audio.play().catch(err => {
+                console.warn("Play prevented:", err);
+            });
+            isPlaying = true;
+
+            // update bottom player UI
+            playerTitle.innerText = track.title;
+            playerArtist.innerText = track.artist;
+            playerCover.src = track.img;
+
+            updatePlayIcons();
+            highlightRow();
+        }
+
+        function updatePlayIcons() {
+            // main button icon
+            playPauseBtn.innerHTML = isPlaying ? '<i class="fa fa-pause"></i>' : '<i class="fa fa-play"></i>';
+
+            // row icons
+            document.querySelectorAll(".track-item").forEach(row => {
+                const idx = parseInt(row.dataset.index);
+                const iconNode = row.querySelector(".play-icon");
+                if (idx === currentIndex && isPlaying) {
+                    iconNode.innerText = "❚❚";
+                    row.classList.add("playing-row");
+                } else {
+                    iconNode.innerText = songData[idx].audio ? "▶" : "-";
+                    row.classList.remove("playing-row");
+                }
+            });
+        }
+
+        function highlightRow() {
+            document.querySelectorAll(".track-item").forEach(row => row.classList.remove("playing-row"));
+            const currentRow = document.querySelector(`.track-item[data-index="${currentIndex}"]`);
+            if (currentRow) currentRow.classList.add("playing-row");
+        }
+
+        // Prev / Next
+        prevBtn.addEventListener("click", () => {
+            if (currentIndex > 0) playTrack(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener("click", () => {
+            if (currentIndex < songData.length - 1) playTrack(currentIndex + 1);
+        });
+
+        // Play/pause from bottom control
+        playPauseBtn.addEventListener("click", () => {
+            if (currentIndex === -1) {
+                // play first available track
+                const firstWithAudio = songData.findIndex(s => s.audio);
+                if (firstWithAudio !== -1) playTrack(firstWithAudio);
+                return;
+            }
+            if (audio.paused) {
+                audio.play();
+                isPlaying = true;
+            } else {
+                audio.pause();
+                isPlaying = false;
+            }
+            updatePlayIcons();
+        });
+
+        // progress update
+        audio.addEventListener("timeupdate", () => {
+            if (!isNaN(audio.duration) && audio.duration > 0) {
+                const pct = (audio.currentTime / audio.duration) * 100;
+                progress.value = pct;
+                currentTimeEl.innerText = formatTime(audio.currentTime);
+                totalTimeEl.innerText = formatTime(audio.duration);
+            }
+        });
+
+        // when song ends -> auto next
+        audio.addEventListener("ended", () => {
+            if (currentIndex < songData.length - 1) {
+                playTrack(currentIndex + 1);
+            } else {
+                // stop
+                isPlaying = false;
+                updatePlayIcons();
+            }
+        });
+
+        // seek
+        let seeking = false;
+        progress.addEventListener("input", (e) => {
+            seeking = true;
+            if (!isNaN(audio.duration) && audio.duration > 0) {
+                const pct = parseFloat(e.target.value);
+                const newTime = (pct / 100) * audio.duration;
+                currentTimeEl.innerText = formatTime(newTime);
+            }
+        });
+        progress.addEventListener("change", (e) => {
+            if (!isNaN(audio.duration) && audio.duration > 0) {
+                const pct = parseFloat(e.target.value);
+                audio.currentTime = (pct / 100) * audio.duration;
+            }
+            seeking = false;
+        });
+
+        // volume control
+        volumeEl.addEventListener("input", (e) => {
+            audio.volume = parseFloat(e.target.value);
+        });
+
+        // helper
+        function formatTime(t) {
+            if (isNaN(t)) return "0:00";
+            const minutes = Math.floor(t / 60);
+            const seconds = Math.floor(t % 60).toString().padStart(2, "0");
+            return `${minutes}:${seconds}`;
+        }
+
+        // ensure icons correct on initial render
+        updatePlayIcons();
+        audio.muted = false;
+        audio.autoplay = false;
+    </script>
+    <!-- container mt-1 CLOSED here -->
+    <footer class="isai-footer w-100">
+        <div class="container">
+            <div class="row">
+                <!-- BRAND / ABOUT -->
+                <div class="col-md-3 col-12 mb-3">
+                    <h5 class="footer-title">IsaiVerse</h5>
+                    <p class="footer-text">
+                        Your music universe — Playlists, Artists, Podcasts & more.
+                    </p>
+                </div>
+                <!-- BROWSE -->
+                <div class="col-md-3 col-6 mb-3">
+                    <h6 class="footer-sub">Browse</h6>
+                    <ul class="footer-list">
+                        <li><a href="./Browse/newrelese.html">New Releases</a></li>
+                        <li><a href="./Browse/topplaylist.html">Top Playlists</a></li>
+                        <li><a href="./Browse/topartist.html">Top Artists</a></li>
+                    </ul>
+                </div>
+                <!-- LIBRARY -->
+                <div class="col-md-3 col-6 mb-3">
+                    <h6 class="footer-sub">My Library</h6>
+                    <ul class="footer-list">
+                        <li><a href="./My Library/liked.html">Liked Songs</a></li>
+                        <li><a href="./My Library/album.html">Albums</a></li>
+                        <li><a href="#">Artists</a></li>
+                    </ul>
+                </div>
+                <!-- SOCIAL -->
+                <div class="col-md-3 col-12 mb-3">
+                    <h6 class="footer-sub">Follow Us</h6>
+                    <div class="footer-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/cliksby_bhrth?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom text-center">
+                © 2025 IsaiVerse • All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+    <script src="../bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IsaiVersa</title>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=crown" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <nav class=" navbar bg-body-tertiary p-2">
+        <div class="container-fluid">
+            <div class="navbar-brand brand">
+                <img style="width:50px; height: 50px;" src="./playlist img/logo.png" alt="">
+                <h5 class="d-inline-block"><a style="text-decoration: none; color: white;" href="./index.html">IsaiVerse</a>
+                </h5>
+            </div>
+            <div class="d-flex align-items-center ms-auto w-50">
+                <div class="input-group me-3 w-100">
+                    <span class="input-group-text bg-transparent border-0" id="search-addon">
+                    </span>
+                    <input id="searchSong" class="form-control me-2" type="search" placeholder="Search songs..." />
+                    <div id="searchResults" class="search-results"></div>
+
+                    <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="d-flex gap-2 align-items-center">
+                    <button class="btn btn-sm"><a href="./login.html"><span class="material-symbols-outlined">
+                            account_circle</span></a></button>
+                    <button class="btn btn-sm">
+    <a id="diamond" href="./premium.html"><i class="fa fa-diamond"></i></a>
+</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-1 ">
+        <div class="mb-1 ">
+            <div class="d-flex justify-content-between align-items-end mb-2 ">
+                <div>
+                    <div class="section-title ">Trending Now</div>
+                    <div class="Artist "></div>
+                </div>
+                <div class="section-sub ">view all</div>
+            </div>
+            <!-- All Time Hits -->
+            <div class="h-scroll d-flex pb-2 ">
+                <div class="pod-card ">
+                    <a href="./trendplaylist/pl1.html"><img src="./playlist img/ALL time.jpg " alt="pod1 "></a>
+                    <a style="text-decoration: none;" href="./trendplaylist/pl1.html">
+                        <div class="pod-title ">All Time Hits</div>
+                    </a>
+                    <div class="pod-sub ">Tharun</div>
+                </div>
+                <!-- Trending Now Tamil -->
+                <div class="pod-card ">
+                    <a href="./trendplaylist/pl2.html"><img src="./playlist img/trend2.jpg " alt="pod2 "></a>
+                    <a style="text-decoration: none;" href="./trendplaylist/pl2.html">
+                        <div class="pod-title ">Trending Now Tamil</div>
+                    </a>
+                    <div class="pod-sub ">Daily rythm .35m</div>
+                </div>
+                <!-- Melting Melodies  -->
+                <div class="pod-card ">
+                    <a href="./trendplaylist/pl3.html"><img src="./playlist img/melodiys.jpg " alt="pod3 "></a>
+                    <a style="text-decoration: none;" href="./trendplaylist/pl3.html">
+                        <div class="pod-title ">Melting Melodies</div>
+                    </a>
+                    <div class="pod-sub ">Bharath .1h</div>
+                </div>
+                <!-- Tamil 2k's Vibe -->
+                <div class="pod-card ">
+                    <a href="./trendplaylist/pl4.html"><img src="./playlist img/tamil2k.jpg " alt="pod4 "></a>
+                    <a style="text-decoration: none;" href="./trendplaylist/pl4.html">
+                        <div class="pod-title ">Tamil 2k's Vibe</div>
+                    </a>
+                    <div class="pod-sub ">Voilet mayers .3h</div>
+                </div>
+                <!-- Rahman 90s songs Tamil -->
+                <div class="pod-card ">
+                    <a href="./trendplaylist/pl5.html"><img src="./playlist img/ar trend.jpg " alt="pod5 "></a>
+                    <a style="text-decoration: none;" href="./trendplaylist/pl5.html">
+                        <div class="pod-title ">Rahman 90s songs Tamil</div>
+                    </a>
+                    <div class="pod-sub ">Melodies · 1h</div>
+                </div>
+                <!-- Kuthu tamil hits -->
+                <div class="pod-card ">
+                    <a href="./trendplaylist/pl6.html"><img src="./playlist img/kuthu.jpg " alt="pod6 "></a>
+                    <a style="text-decoration: none;" href="./trendplaylist/pl6.html">
+                        <div class="pod-title ">Kuthu tamil hits</div>
+                    </a>
+                    <div class="pod-sub "> Adhulya's Banger's .6hx</div>
+                </div>
+                <!-- Love Failure tamil -->
+                <div class="pod-card ">
+                    <a href="./trendplaylist/pl7.html"><img src="./playlist img/luv fail.jpg " alt="pod6 "></a>
+                    <a style="text-decoration: none;" href="./trendplaylist/pl7.html">
+                        <div class="pod-title ">Love Failure tamil </div>
+                    </a>
+                    <div class="pod-sub ">Heals ❤️‍🩹</div>
+                </div>
+                <!-- Motivational Tamil -->
+                <div class="pod-card ">
+                    <a href="./trendplaylist/pl8.html"><img src="./playlist img/motivational.jpg " alt="pod6 "></a>
+                    <a style="text-decoration: none;" href="./trendplaylist/pl8.html">
+                        <div class="pod-title ">Motivational Tamil</div>
+                    </a>
+                    <div class="pod-sub ">By Punitham</div>
+                </div>
+            </div>
+            <!-- New Releases -->
+            <div class="mb-1 ">
+                <div class="d-flex justify-content-between align-items-end mb-1 ">
+                    <div>
+                        <div class="section-title ">New Releases..</div>
+                    </div>
+                    <div class="section-sub ">view all</div>
+                </div>
+                <!-- Dude playlist -->
+                <div class="h-scroll d-flex pb-2 ">
+                    <div class="pod-card ">
+                        <a href="./newrel/nr1.html"><img src="./playlist img/dude1.jpg " alt="lol1 "></a>
+                        <a style="text-decoration: none;" href="./newrel/nr1.html">
+                            <div class="pod-title ">Dude</div>
+                        </a>
+                        <div class="pod-sub ">By Sai Abhyankkar</div>
+                    </div>
+                    <!-- Vidaamuyarchi playlist -->
+                    <div class="pod-card ">
+                        <a href="./newrel/nr2.html"><img src="./playlist img/Vidaamuy.jpg " alt="lol2 "></a>
+                        <a style="text-decoration: none;" href="./newrel/nr2.html">
+                            <div class="pod-title ">Vidaamuyarchi</div>
+                        </a>
+                        <div class="pod-sub ">By Anirudh Ravichanderi</div>
+                    </div>
+                    <!-- Retro playlist -->
+                    <div class="pod-card ">
+                        <a href="./newrel/nr3.html"><img src="./playlist img/Retro.jpg " alt="lol3 "></a>
+                        <a style="text-decoration: none;" href="./newrel/nr3.html">
+                            <div class="pod-title ">Retro</div>
+                        </a>
+                        <div class="pod-sub ">by Santhosh Narayanan</div>
+                    </div>
+                    <!-- amaran playlist -->
+                    <div class="pod-card ">
+                        <a href="./newrel/nr4.html"><img src="./playlist img/Amaran.jpg " alt="lol4 "></a>
+                        <a style="text-decoration: none;" href="../newrel/nr4.html">
+                            <div class="pod-title ">Amaran</div>
+                        </a>
+                        <div class="pod-sub ">By G.V.Prakash Kumar</div>
+                    </div>
+                    <!-- thug life playlist -->
+                    <div class="pod-card ">
+                        <a href="./newrel/nr5.html"><img src="./playlist img/Thug.jpg " alt="lol1 "></a>
+                        <a style="text-decoration: none;" href="./newrel/nr5.html">
+                            <div class="pod-title ">Thug Life</div>
+                        </a>
+                        <div class="pod-sub ">By A.R.Rahman</div>
+                    </div>
+                    <!-- coolie playlist -->
+                    <div class="pod-card ">
+                        <a href="./newrel/nr6.html"><img src="./playlist img/Coolie.jpg " alt="lol5 "></a>
+                        <a style="text-decoration: none;" href="./newrel/nr6.html">
+                            <div class="pod-title ">Coolie</div>
+                        </a>
+                        <div class="pod-sub ">By Anirudh Ravichander</div>
+                    </div>
+                    <!-- Devara playlist -->
+                    <div class="pod-card ">
+                        <a href="./newrel/nr7.html"><img src="./playlist img/Devara.jpg " alt="lol6 "></a>
+                        <a style="text-decoration:none;" href="./newrel/nr7.html">
+                            <div class="pod-title ">Devara</div>
+                        </a>
+                        <div class="pod-sub ">By Anirudh Ravichander</div>
+                    </div>
+                    <!-- Raayan playlist -->
+                    <div class="pod-card ">
+                        <a href="./newrel/nr8.html"><img src="./playlist img/Raayan.jpg " alt="lol1 "></a>
+                        <a style="text-decoration:none;" href="./newrel/nr8.html">
+                            <div class="pod-title ">Raayan</div>
+                        </a>
+                        <div class="pod-sub ">By A.R.Rahman</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-1 ">
+                <div class="d-flex justify-content-between align-items-end mb-1 ">
+                    <div>
+                        <div class="section-title ">Recommended Artist</div>
+                        <div class="section-sub "></div>
+                    </div>
+                    <div class="section-sub ">view all</div>
+                </div>
+                <div class="row g-3 ">
+                    <div class="col-6 col-md-3 ">
+                        <div class="pod-card ">
+                            <a href="./Artist/arr.html"><img src="./playlist img/arr.jpg " alt=" "></a>
+                            <a style="text-decoration: none;" href="./Artist/arr.html">
+                                <div class="pod-title ">A.R. Rahman</div>
+                            </a>
+                            <div class="pod-sub ">Artist</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 ">
+                        <div class="pod-card ">
+                            <a style="text-decoration: none;" href="./Artist/ani.html"><img src="./playlist img/ani.jpg " alt=" "></a>
+                            <a style="text-decoration: none;" href="./Artist/ani.html">
+                                <div class="pod-title ">Anirudh Ravichander</div>
+                            </a>
+                            <div class="pod-sub ">Artist</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 ">
+                        <div class="pod-card ">
+                            <a style="text-decoration: none;" href="./Artist/ilayaraja.html"><img src="./playlist img/isai naani.jpg " alt=" "></a>
+                            <a style="text-decoration: none;" href="./Artist/ilayaraja.html">
+                                <div class="pod-title ">ilayaraja</div>
+                            </a>
+                            <div class="pod-sub ">Artist</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 ">
+                        <div class="pod-card ">
+                            <a style="text-decoration: none;" href="./Artist/yuvan.html"><img src="./playlist img/yuvan.jpg " alt=" "></a>
+                            <a style="text-decoration: none;" href="./Artist/yuvan.html">
+                                <div class="pod-title ">Yuvan Shankar Raja</div>
+                            </a>
+                            <div class="pod-sub ">Artist</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container mt-1 CLOSED here -->
+    <footer class="isai-footer w-100">
+        <div class="container">
+            <div class="row">
+                <!-- BRAND / ABOUT -->
+                <div class="col-md-3 col-12 mb-3">
+                    <h5 class="footer-title">IsaiVerse</h5>
+                    <p class="footer-text">
+                        Your music universe — Playlists, Artists, Podcasts & more.
+                    </p>
+                </div>
+                <!-- BROWSE -->
+                <div class="col-md-3 col-6 mb-3">
+                    <h6 class="footer-sub">Browse</h6>
+                    <ul class="footer-list">
+                        <li><a href="./Browse/newrelese.html">New Releases</a></li>
+                        <li><a href="./Browse/topplaylist.html">Top Playlists</a></li>
+                        <li><a href="./Browse/topartist.html">Top Artists</a></li>
+                    </ul>
+                </div>
+                <!-- LIBRARY -->
+                <div class="col-md-3 col-6 mb-3">
+                    <h6 class="footer-sub">My Library</h6>
+                    <ul class="footer-list">
+                        <li><a href="./My Library/liked.html">Liked Songs</a></li>
+                        <li><a href="./My Library/album.html">Albums</a></li>
+                        <li><a href="#">Artists</a></li>
+                    </ul>
+                </div>
+                <!-- SOCIAL -->
+                <div class="col-md-3 col-12 mb-3">
+                    <h6 class="footer-sub">Follow Us</h6>
+                    <div class="footer-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/cliksby_bhrth?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom text-center">
+                © 2025 IsaiVerse • All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script>
+        const playlists = [{
+                name: "All Time Hits",
+                url: "./trendplaylist/pl1.html"
+            }, {
+                name: "Trending Now Tamil",
+                url: "./trendplaylist/pl2.html"
+            }, {
+                name: "Melting Melodies",
+                url: "./trendplaylist/pl3.html"
+            }, {
+                name: "Tamil 2k's Vibe",
+                url: "./trendplaylist/pl4.html"
+            }, {
+                name: "Rahman 90s songs Tamil",
+                url: "./trendplaylist/pl5.html"
+            }, {
+                name: "Kuthu Tamil Hits",
+                url: "./trendplaylist/pl6.html"
+            }, {
+                name: "Love Failure Tamil",
+                url: "./trendplaylist/pl7.html"
+            }, {
+                name: "Motivational Tamil",
+                url: "./trendplaylist/pl8.html"
+            },
+
+            // NEW RELEASES
+            {
+                name: "Dude",
+                url: "./newrel/nr1.html"
+            }, {
+                name: "Vidaamuyarchi",
+                url: "./newrel/nr2.html"
+            }, {
+                name: "Retro",
+                url: "./newrel/nr3.html"
+            }, {
+                name: "Amaran",
+                url: "./newrel/nr4.html"
+            }, {
+                name: "Thug Life",
+                url: "./newrel/nr5.html"
+            }, {
+                name: "Coolie",
+                url: "./newrel/nr6.html"
+            }, {
+                name: "Devara",
+                url: "./newrel/nr7.html"
+            }, {
+                name: "Raayan",
+                url: "./newrel/nr8.html"
+            },
+        ];
+        const searchInput = document.getElementById("searchSong");
+        const searchResults = document.getElementById("searchResults");
+
+        searchInput.addEventListener("input", function() {
+            const query = searchInput.value.toLowerCase().trim();
+
+            if (query === "") {
+                searchResults.innerHTML = "";
+                searchResults.style.display = "none";
+                return;
+            }
+
+            const matched = playlists.filter(p =>
+                p.name.toLowerCase().includes(query)
+            );
+
+            if (matched.length === 0) {
+                searchResults.innerHTML = "<div class='no-result'>No playlist found</div>";
+                searchResults.style.display = "block";
+                return;
+            }
+
+            searchResults.innerHTML = matched.map(p => `
+        <div class="search-item" data-url="${p.url}">
+            ${p.name}
+        </div>
+    `).join("");
+
+            searchResults.style.display = "block";
+        });
+
+        // Click to navigate
+        searchResults.addEventListener("click", function(e) {
+            const item = e.target.closest(".search-item");
+            if (!item) return;
+
+            window.location.href = item.dataset.url;
+        });
+    </script>
+    <style>
+        .search-results {
+            position: absolute;
+            background: #1f1f1f;
+            width: 90%;
+            margin-top: 5px;
+            max-height: 250px;
+            overflow-y: auto;
+            border-radius: 8px;
+            display: none;
+            z-index: 9999;
+            color: white;
+        }
+        
+        .search-item {
+            padding: 10px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #333;
+        }
+        
+        .search-item:hover {
+            background: #333;
+        }
+        
+        .no-result {
+            padding: 10px;
+            color: #aaa;
+        }
+    </style>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+</html>

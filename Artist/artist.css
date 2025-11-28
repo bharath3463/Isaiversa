@@ -1,0 +1,135 @@
+:root {
+    --hero-height: 360px;
+    --overlay: rgba(6, 6, 8, 0.62);
+}
+
+
+/* page basics */
+
+body {
+    background: #050505;
+    color: #fff;
+    font-family: system-ui, Arial, sans-serif;
+}
+
+
+/* nav */
+
+.navbar .logo {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.search-input {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: #fff;
+}
+
+
+/* HERO */
+
+.artist-hero {
+    min-height: var(--hero-height);
+    background-image: url('img/artist-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.artist-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+}
+
+.artist-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.artist-cover {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 6px solid rgba(0, 0, 0, 0.35);
+    background: #111;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+
+/* releases horizontal row */
+
+.release-row {
+    white-space: nowrap;
+}
+
+.release-card {
+    width: 160px;
+    min-width: 160px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.release-card img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+
+/* top songs list */
+
+.song-item {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.song-item img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.song-meta small {
+    color: rgba(255, 255, 255, 0.65);
+    display: block;
+}
+
+
+/* stories */
+
+.story-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+}
+
+
+/* small screens fix */
+
+@media (max-width:767px) {
+    .artist-cover {
+        width: 140px;
+        height: 140px;
+    }
+    .artist-hero {
+        padding: 2.5rem 0;
+    }
+    .search-input {
+        width: 100%;
+    }
+}
